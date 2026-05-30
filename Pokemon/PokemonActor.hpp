@@ -1,0 +1,1 @@
+//Active Pokemon Entity in a Battle

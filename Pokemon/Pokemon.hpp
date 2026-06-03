@@ -1,0 +1,1 @@
+//Pokemon Base Class all Pokemon Inherit from

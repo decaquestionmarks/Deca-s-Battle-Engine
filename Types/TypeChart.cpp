@@ -19,10 +19,8 @@ class TypeChart{
         return true; //if no types are immune, return true
     }
     static Type getType(std::string name){
-        if (name == "Fire") return Fire();
-        else if (name == "Water") return Water();
-        else if (name == "Grass") return Grass();
-        // add more types here
+        auto it = TypeFactory.find(name);
+        if (it != TypeFactory.end()) return *(it->second()); // return the type
         else return Type(); // default to base type if not found
     }
 };

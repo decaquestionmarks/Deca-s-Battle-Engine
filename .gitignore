@@ -1,3 +1,5 @@
-catchorg-Catch2-31b1109/*
+catchorg-Catch2-31b1109/
 */bin/*
 *.log
+Tests/*
+scripts/run_win_cmd.sh

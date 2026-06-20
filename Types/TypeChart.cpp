@@ -18,7 +18,7 @@ class TypeChart{
         }
         return true; //if no types are immune, return true
     }
-    static Type getType(std::string name){
+    static Type getType(const std::string name){
         auto it = TypeFactory.find(name);
         if (it != TypeFactory.end()) return *(it->second()); // return the type
         else return Type(); // default to base type if not found

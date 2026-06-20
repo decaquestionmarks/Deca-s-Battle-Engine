@@ -4,4 +4,5 @@
 class Condition{
 public:
     std::string name;
+    
 };

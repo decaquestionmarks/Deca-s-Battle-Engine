@@ -4,6 +4,7 @@
 #include <vector>
 #include <unordered_map>
 #include "Learnset.hpp"
+#include "GrowthRate.hpp"
 
 class Pokemon{
     protected:
@@ -25,6 +26,10 @@ class Pokemon{
     std::vector<const std::string> evolutions;
     std::string prevo;
     Learnset learnset;
+    int baseFriendship = 70;
+    int catchRate = 255;
+    int EggSteps = 0;
+    std::string_view growthRate;
     public:
     Pokemon();
     ~Pokemon();

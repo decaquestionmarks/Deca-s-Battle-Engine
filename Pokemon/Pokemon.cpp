@@ -17,8 +17,21 @@ Pokemon::Pokemon() {
     height = 1;
     weight = 1;
     color = "unknown";
+    genderRatio = 0.5; //0.0 = all male, 1.0 = all female, -1. = genderless
     eggGroups = std::vector<const std::string>();
     evolutions = std::vector<const std::string>();
     prevo = "";
     learnset = Learnset();
+    baseFriendship = 70;
+    catchRate = 255;
+    EggSteps = 0;
+    growthRate = "Medium Fast";
+    //EVs
+    evHp = 0;
+    evAtk = 0;
+    evDef = 0;
+    evSpa = 0;
+    evSpd = 0;
+    evSpe = 0;
+    expYield = 0;
 }

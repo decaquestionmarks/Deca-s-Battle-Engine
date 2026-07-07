@@ -11,6 +11,7 @@ class Pokemon{
     int num;
     std::string name;
     std::vector<const std::string> types;
+    //Stats
     int hp;
     int atk;
     int def;
@@ -21,15 +22,23 @@ class Pokemon{
     double height; //meters
     double weight; //kilograms
     std::string color;
-    double genderRatio = 0.5; //0.0 = all male, 1.0 = all female, -1. = genderless
+    double genderRatio;//0.0 = all male, 1.0 = all female, -1. = genderless
     std::vector<const std::string> eggGroups;
     std::vector<const std::string> evolutions;
     std::string prevo;
     Learnset learnset;
-    int baseFriendship = 70;
-    int catchRate = 255;
-    int EggSteps = 0;
+    int baseFriendship;
+    int catchRate;
+    int EggSteps;
     std::string_view growthRate;
+    //EVs
+    int evHp;
+    int evAtk;
+    int evDef;
+    int evSpa;
+    int evSpd;
+    int evSpe;
+    int expYield;
     public:
     Pokemon();
     ~Pokemon();
@@ -40,6 +49,7 @@ class Pokemon{
     int getSpa() const {return spa;}
     int getSpd() const {return spd;}
     int getSpe() const {return spe;}
+    int getBST() const {return hp + atk + def + spa + spd + spe;}
     std::vector<const std::string> getTypes() const {return types;}
     std::unordered_map<const std::string, const std::string> getAbilities() const {return abilities;}
     double getHeight() const {return height;}
@@ -50,4 +60,11 @@ class Pokemon{
     std::vector<const std::string> getEvolutions() const {return evolutions;}
     std::string getPrevo() const {return prevo;}
     Learnset getLearnset() const {return learnset;}
+    int getEvHp() const {return evHp;}
+    int getEvAtk() const {return evAtk;}
+    int getEvDef() const {return evDef;}
+    int getEvSpa() const {return evSpa;}
+    int getEvSpd() const {return evSpd;}
+    int getEvSpe() const {return evSpe;}
+    int getExpYield() const {return expYield;}
 };

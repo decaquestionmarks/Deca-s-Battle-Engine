@@ -22,6 +22,9 @@ class Magikarp: public Pokemon{
         evolutions = {"Gyarados"};
         learnset<<1<<"Splash"<<15<<"Tackle"<<25<<"Flail";
         learnset<<"Bounce"<<"Hydro Pump";
+        EggSteps = 1280;
+        growthRate = "Slow";
+        
     }
     ~Magikarp();
 };

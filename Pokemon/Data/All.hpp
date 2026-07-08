@@ -8,7 +8,7 @@
 #include "Magikarp.cpp"
 #include "Pikachu.cpp"
 
-inline std::unordered_map<std::string_view, std::function<std::unique_ptr<Pokemon>()>> TypeFactory = {
+inline std::unordered_map<std::string_view, std::function<std::unique_ptr<Pokemon>()>> PokemonFactory = {
     {"Magikarp", []() -> std::unique_ptr<Pokemon> { return std::make_unique<Magikarp>(); }},
     {"Pikachu", []() -> std::unique_ptr<Pokemon> { return std::make_unique<Pikachu>(); }},
 };

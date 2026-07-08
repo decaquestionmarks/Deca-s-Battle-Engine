@@ -46,7 +46,7 @@ class PartyPokemon{
     std::string Moves[4];
     int MovePP[4];
     int MovePPUps[4];
-    //std::vector<std::string> pastmoves;
+    //std::vector<std::string> pastmoves; implement later
     //Cosmetic Data
         //Nah
     //OT
@@ -125,4 +125,9 @@ class PartyPokemon{
     std::string getOTName() const {return OTName;}
     int getOTID() const {return OTID;}
     int getSID() const {return SID;}
+
+    static void serialize(std::ostream& outputStream, const PartyPokemon& pkmn);
+    static void deserialize(std::istream& inputStream, PartyPokemon& pkmn);
+    friend std::ostream& operator<<(std::ostream& os, const PartyPokemon& pkmn) {PartyPokemon::serialize(os, pkmn);}
+    friend std::istream& operator>>(std::istream& is, PartyPokemon& pkmn) {PartyPokemon::deserialize(is, pkmn);}
 };

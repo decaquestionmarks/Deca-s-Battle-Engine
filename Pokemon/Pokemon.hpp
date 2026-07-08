@@ -60,6 +60,10 @@ class Pokemon{
     std::vector<const std::string> getEvolutions() const {return evolutions;}
     std::string getPrevo() const {return prevo;}
     Learnset getLearnset() const {return learnset;}
+    int getBaseFriendship() const {return baseFriendship;}
+    int getBaseCatchRate() const {return catchRate;}
+    std::string_view getGrowthRate() const {return growthRate;}
+    int getEggSteps() const {return EggSteps;}
     int getEvHp() const {return evHp;}
     int getEvAtk() const {return evAtk;}
     int getEvDef() const {return evDef;}

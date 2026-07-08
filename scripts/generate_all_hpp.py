@@ -47,7 +47,7 @@ def generate(data_dir: Path, out_path: Path) -> None:
 
     # map: string_view -> function returning unique_ptr<Type>
     lines.append(
-        f"inline std::unordered_map<std::string_view, std::function<std::unique_ptr<{convtable.get(data_dir.parent.name)}>()>> TypeFactory = {{"
+        f"inline std::unordered_map<std::string_view, std::function<std::unique_ptr<{convtable.get(data_dir.parent.name)}>()>> {convtable.get(data_dir.parent.name)}Factory = {{"
     )
 
     entries = []

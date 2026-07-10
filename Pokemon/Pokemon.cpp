@@ -35,3 +35,12 @@ Pokemon::Pokemon() {
     evSpe = 0;
     expYield = 0;
 }
+    bool Pokemon::canLearnEggMove(std::string move) const {
+        return learnset.canLearnEggMove(move);
+    }
+    bool Pokemon::canLearnTM(std::string move) const {
+        return learnset.canLearnTM(move);
+    }
+    std::vector<const std::string_view> Pokemon::getMovesAtLevel(int level) const {
+        return learnset.getLevelMove(level);
+    }

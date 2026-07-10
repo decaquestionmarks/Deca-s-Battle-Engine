@@ -1,7 +1,6 @@
 #include "Learnset.hpp"
 
 // Function skeletons for Learnset; implementations intentionally left empty.
-// TODO: Add real implementations when ready.
 
 Learnset::Learnset() {
     level_up_moves = std::unordered_map<int, std::vector<const std::string_view>>();

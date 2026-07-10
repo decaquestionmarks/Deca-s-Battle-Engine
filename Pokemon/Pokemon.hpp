@@ -71,4 +71,8 @@ class Pokemon{
     int getEvSpd() const {return evSpd;}
     int getEvSpe() const {return evSpe;}
     int getExpYield() const {return expYield;}
+    bool canLearnEggMove(std::string move) const;
+    virtual bool canLearnTM(std::string move) const;
+    std::vector<const std::string_view> getMovesAtLevel(int level) const;
+
 };

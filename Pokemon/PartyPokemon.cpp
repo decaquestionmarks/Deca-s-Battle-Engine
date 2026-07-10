@@ -30,6 +30,7 @@ bool PartyPokemon::willLevelUp() const {
 }
 
 bool PartyPokemon::willLearnMove() const {
+    //TODO:
     //get back to, make Pokemon canlearnmove method that is virtual.
 }
 
@@ -53,6 +54,7 @@ bool PartyPokemon::doLevelUp() {
 }
 
 void PartyPokemon::hatch() {
+    //TODO:
     // Implementation for hatching an egg
 }
 
@@ -149,4 +151,30 @@ int PartyPokemon::calculateSpe() const {
     Nature* nature = NatureFactory::getNature(getNature());
     int iv = isBottleCapped(5) ? 31 : speIV;
     return (int) nature->onModifySpeed(((2* pokemon.getSpe() + iv + speEV / 4) * level )/ 100 + 5);
+}
+
+void PartyPokemon::learnMove(int index, std::string newMove) {
+    setMove(index, newMove);
+    setMovePPUp(index, 0);
+    setMovePP(index, 20/*TODO need move defined to get PP*/);
+}
+
+void PartyPokemon::swapMoves(int index1, int index2) {
+    if(getMove(index1) != "" && getMove(index2) != "") {
+        std::swap(Moves[index1], Moves[index2]);
+        std::swap(MovePP[index1], MovePP[index2]);
+        std::swap(MovePPUps[index1], MovePPUps[index2]);
+    }
+}
+
+void PartyPokemon::forgetMove(int index) {
+    for(int i = index; i<3; i++) {
+        swapMoves(i, i + 1);
+    }
+    learnMove(3, "");
+}
+
+bool PartyPokemon::canLearnMove() const {
+    // Implementation for checking if the Pokémon can learn a new move
+    return false; // TODO Placeholder implementation
 }

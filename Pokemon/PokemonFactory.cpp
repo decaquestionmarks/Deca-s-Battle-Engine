@@ -9,7 +9,7 @@ class PkmnFactory {
 public:
     static Pokemon getPokemon(const std::string& species){
         auto it = PokemonFactory.find(species);
-        if (it != PokemonFactory.end()) return *(it->second()); // return the type
+        if (it != PokemonFactory.end()) return *(it->second()); // return the Pokemon
         else return Pokemon();
     };
 };

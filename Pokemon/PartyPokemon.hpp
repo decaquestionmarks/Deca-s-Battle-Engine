@@ -8,8 +8,8 @@ class PartyPokemon{
     int level;
     std::string nickname;
     int exp;
-    std::string nature;
-    std::string effectiveNature;
+    int nature;
+    int effectiveNature;
     std::string ability;
     std::string heldItem;
     int friendship;
@@ -62,10 +62,11 @@ class PartyPokemon{
     int getExp() const {return exp;}
     int addExp(int expGain);
     bool willLevelUp() const;
+    bool willLearnMove() const;
     bool doLevelUp();
-    std::string getNature() const {return nature;}
-    std::string getEffectiveNature() const {return effectiveNature;}
-    void setEffectiveNature(std::string newNature){effectiveNature = newNature;};
+    int getNature() const {return nature;}
+    int getEffectiveNature() const {return effectiveNature;}
+    void setEffectiveNature(int newNature){effectiveNature = newNature;};
     std::string getAbility() const {return ability;}
     void setAbility(std::string newAbility){ability = newAbility;};
     std::string getHeldItem() const {return heldItem;}
@@ -105,12 +106,19 @@ class PartyPokemon{
     int getSpaEV() const {return spaEV;}
     int getSpdEV() const {return spdEV;}
     int getSpeEV() const {return speEV;}
-    void addHPEV(int amount) {hpEV += amount;}
-    void addAtkEV(int amount) {atkEV += amount;}
-    void addDefEV(int amount) {defEV += amount;}
-    void addSpaEV(int amount) {spaEV += amount;}
-    void addSpdEV(int amount) {spdEV += amount;}
-    void addSpeEV(int amount) {speEV += amount;}
+    bool atMaxEV() const;
+    void addHPEV(int amount);
+    void addAtkEV(int amount);
+    void addDefEV(int amount);
+    void addSpaEV(int amount);
+    void addSpdEV(int amount);
+    void addSpeEV(int amount);
+    int calculateHP() const;
+    int calculateAtk() const;
+    int calculateDef() const;
+    int calculateSpa() const;
+    int calculateSpd() const;
+    int calculateSpe() const;
 
     std::string getMove(int index) const {return Moves[index];}
     void setMove(int index, std::string newMove) {Moves[index] = newMove;}
@@ -121,6 +129,7 @@ class PartyPokemon{
     void learnMove(int index, std::string newMove); //do full process
     void swapMoves(int index1, int index2); //do full process
     void forgetMove(int index); //remove move then move all moves up
+    bool canLearnMove() const;
 
     std::string getOTName() const {return OTName;}
     int getOTID() const {return OTID;}
@@ -130,4 +139,5 @@ class PartyPokemon{
     static void deserialize(std::istream& inputStream, PartyPokemon& pkmn);
     friend std::ostream& operator<<(std::ostream& os, const PartyPokemon& pkmn) {PartyPokemon::serialize(os, pkmn);}
     friend std::istream& operator>>(std::istream& is, PartyPokemon& pkmn) {PartyPokemon::deserialize(is, pkmn);}
+    Pokemon getPokemon() const {return PkmnFactory::getPokemon(species);}
 };
